@@ -41,6 +41,8 @@ final class DatabaseRepositoryTests: XCTestCase {
     override func tearDownWithError() throws {
         testContainer = nil
         repo = nil
+        task1 = nil
+        task2 = nil 
     }
     
     func createSut() {

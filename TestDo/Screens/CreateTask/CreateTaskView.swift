@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-
-struct CreateTaskView: View {
+struct CreateTaskView<ViewModel : TaskListViewModelProtocol>: View {
     
     @State var inputText = ""
-    @ObservedObject var viewModel : TaskViewModel
-    @Environment(\.presentationMode) var presentationMode
     @State var errorMessage = ""
+
+    @ObservedObject var viewModel : ViewModel
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -35,7 +36,6 @@ struct CreateTaskView: View {
                 }
                
                 AppButton(title: viewModel.selectedTask != nil ? "Save Changes" : "Add New Task") {
-                    print("Button pressed!")
                     if viewModel.selectedTask != nil {
                         //update task
                         viewModel.selectedTask?.title = inputText

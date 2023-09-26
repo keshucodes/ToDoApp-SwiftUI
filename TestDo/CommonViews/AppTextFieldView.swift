@@ -11,7 +11,7 @@ import SwiftUI
 struct AppTextFieldView: View {
     @Binding var text : String 
 
-    let placeholder = "Enter your text here" // Your placeholder text
+    let placeholder = "Enter your text here" 
 
     var body: some View {
         ZStack(alignment: .topLeading) {

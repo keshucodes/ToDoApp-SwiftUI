@@ -8,11 +8,11 @@
 import SwiftUI
 
 
-struct TaskListView: View {
+struct TaskListView<ViewModel: TaskListViewModelProtocol>: View {
     
-    @ObservedObject var viewModel : TaskViewModel
+    @ObservedObject var viewModel : ViewModel
         
-    init(viewModel: TaskViewModel) {
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
     

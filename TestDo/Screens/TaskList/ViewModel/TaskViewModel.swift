@@ -34,8 +34,22 @@ enum TaskErrors : LocalizedError {
     
 }
 
+protocol TaskListViewModelProtocol: ObservableObject {
+    
+    var tasks: [TaskItem] { get set }
+    
+    var navigateToCreateTaskView: Bool { get set }
+    var selectedTask: TaskItem? { get set }
+    
+    func getAllTasks() throws -> [TaskItem]?
+    func markTaskComplete(task: TaskItem)
+    func updateTask(_ task : TaskItem) throws
+    func createTask(_ task: TaskItem) throws
+    func delete(_ id: UUID) throws
+}
 
-class TaskViewModel : ObservableObject, DatabaseRepositoryProtocol {
+
+class TaskViewModel : TaskListViewModelProtocol {
     
     @Published var tasks : [TaskItem] = []
     @Published var navigateToCreateTaskView = false

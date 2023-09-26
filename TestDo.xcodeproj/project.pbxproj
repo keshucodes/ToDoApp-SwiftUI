@@ -32,6 +32,9 @@
 		62EE60282ABF3964004208B4 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EE60272ABF3963004208B4 /* TaskItem.swift */; };
 		62EE602D2ABF4D10004208B4 /* DatabaseRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EE602C2ABF4D10004208B4 /* DatabaseRepositoryTests.swift */; };
 		62EE602F2ABF4DC4004208B4 /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EE602E2ABF4DC4004208B4 /* DatabaseRepository.swift */; };
+		62F7F8AE2AC299CC00E27C1F /* MockTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F7F8AD2AC299CC00E27C1F /* MockTaskViewModel.swift */; };
+		62F7F8B42AC2AB4C00E27C1F /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 62F7F8B32AC2AB4C00E27C1F /* ViewInspector */; };
+		62F7F8B72AC2B34500E27C1F /* CreateTaskViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F7F8B62AC2B34500E27C1F /* CreateTaskViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,8 @@
 		62EE602B2ABF4997004208B4 /* TestDo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestDo.xctestplan; sourceTree = "<group>"; };
 		62EE602C2ABF4D10004208B4 /* DatabaseRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepositoryTests.swift; sourceTree = "<group>"; };
 		62EE602E2ABF4DC4004208B4 /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
+		62F7F8AD2AC299CC00E27C1F /* MockTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTaskViewModel.swift; sourceTree = "<group>"; };
+		62F7F8B62AC2B34500E27C1F /* CreateTaskViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F7F8B42AC2AB4C00E27C1F /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +242,7 @@
 		62D0D7CC2AC20C4500FDE01B /* TaskListViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				62F7F8AC2AC299AD00E27C1F /* Model */,
 				62D0D7CD2AC20C6800FDE01B /* TaskListViewTests.swift */,
 			);
 			path = TaskListViewTests;
@@ -248,6 +255,7 @@
 				62EE60052ABDE735004208B4 /* TestDoTests */,
 				62EE600F2ABDE735004208B4 /* TestDoUITests */,
 				62EE5FEE2ABDE731004208B4 /* Products */,
+				62F7F8B22AC2AB4C00E27C1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -287,6 +295,7 @@
 		62EE60052ABDE735004208B4 /* TestDoTests */ = {
 			isa = PBXGroup;
 			children = (
+				62F7F8B52AC2B33100E27C1F /* CreateTaskViewTests */,
 				62D0D7CC2AC20C4500FDE01B /* TaskListViewTests */,
 				6268CC032AC00BFB00685921 /* TaskViewModelTests */,
 				6268CBFD2AC001A500685921 /* DatabaseManagerTests */,
@@ -301,6 +310,29 @@
 				62EE60122ABDE735004208B4 /* TestDoUITestsLaunchTests.swift */,
 			);
 			path = TestDoUITests;
+			sourceTree = "<group>";
+		};
+		62F7F8AC2AC299AD00E27C1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62F7F8AD2AC299CC00E27C1F /* MockTaskViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62F7F8B22AC2AB4C00E27C1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62F7F8B52AC2B33100E27C1F /* CreateTaskViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				62F7F8B62AC2B34500E27C1F /* CreateTaskViewTests.swift */,
+			);
+			path = CreateTaskViewTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +351,8 @@
 			dependencies = (
 			);
 			name = TestDo;
+			packageProductDependencies = (
+			);
 			productName = TestDo;
 			productReference = 62EE5FED2ABDE731004208B4 /* TestDo.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +371,9 @@
 				62EE60042ABDE735004208B4 /* PBXTargetDependency */,
 			);
 			name = TestDoTests;
+			packageProductDependencies = (
+				62F7F8B32AC2AB4C00E27C1F /* ViewInspector */,
+			);
 			productName = TestDoTests;
 			productReference = 62EE60022ABDE735004208B4 /* TestDoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -391,6 +428,9 @@
 				Base,
 			);
 			mainGroup = 62EE5FE42ABDE731004208B4;
+			packageReferences = (
+				62F7F8AF2AC2A7E900E27C1F /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			productRefGroup = 62EE5FEE2ABDE731004208B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -461,6 +501,8 @@
 				62EE60242ABF371E004208B4 /* TaskManagerTests.swift in Sources */,
 				62EE602D2ABF4D10004208B4 /* DatabaseRepositoryTests.swift in Sources */,
 				62D0D7CE2AC20C6800FDE01B /* TaskListViewTests.swift in Sources */,
+				62F7F8AE2AC299CC00E27C1F /* MockTaskViewModel.swift in Sources */,
+				62F7F8B72AC2B34500E27C1F /* CreateTaskViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +819,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62F7F8AF2AC2A7E900E27C1F /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62F7F8B32AC2AB4C00E27C1F /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F7F8AF2AC2A7E900E27C1F /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		62EE5FFB2ABDE734004208B4 /* TestDo.xcdatamodeld */ = {
