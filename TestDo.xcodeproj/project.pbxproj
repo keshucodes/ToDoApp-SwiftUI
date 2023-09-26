@@ -192,16 +192,8 @@
 			children = (
 				6268CC092AC00C7800685921 /* ViewModel */,
 				6268CC082AC00C7400685921 /* View */,
-				6268CC072AC00C6B00685921 /* Model */,
 			);
 			path = TaskList;
-			sourceTree = "<group>";
-		};
-		6268CC072AC00C6B00685921 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6268CC082AC00C7400685921 /* View */ = {
@@ -225,7 +217,7 @@
 		6268CC122AC1AA9900685921 /* CreateTask */ = {
 			isa = PBXGroup;
 			children = (
-				6268CC132AC1AAAC00685921 /* CreateTaskView.swift */,
+				62F7F8B82AC2C94F00E27C1F /* View */,
 			);
 			path = CreateTask;
 			sourceTree = "<group>";
@@ -272,10 +264,10 @@
 		62EE5FEF2ABDE731004208B4 /* TestDo */ = {
 			isa = PBXGroup;
 			children = (
-				62D0D7C72AC1EF8D00FDE01B /* CommonViews */,
 				6268CC022AC0028300685921 /* Helpers */,
-				6268CC002AC0023E00685921 /* DatabaseManager */,
+				62D0D7C72AC1EF8D00FDE01B /* CommonViews */,
 				6268CBFF2AC001F000685921 /* CoreDataModels */,
+				6268CC002AC0023E00685921 /* DatabaseManager */,
 				6268CC012AC0026500685921 /* Screens */,
 				62EE5FF02ABDE731004208B4 /* TestDoApp.swift */,
 				62EE5FF42ABDE734004208B4 /* Assets.xcassets */,
@@ -333,6 +325,14 @@
 				62F7F8B62AC2B34500E27C1F /* CreateTaskViewTests.swift */,
 			);
 			path = CreateTaskViewTests;
+			sourceTree = "<group>";
+		};
+		62F7F8B82AC2C94F00E27C1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6268CC132AC1AAAC00685921 /* CreateTaskView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

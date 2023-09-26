@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TaskItem : Hashable {
+struct TaskItem : Identifiable {
     var id : UUID
     var title : String
     var createdAt : Date

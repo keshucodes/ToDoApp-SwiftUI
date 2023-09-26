@@ -11,7 +11,7 @@ import SwiftUI
 struct TaskListView<ViewModel: TaskListViewModelProtocol>: View {
     
     @ObservedObject var viewModel : ViewModel
-        
+    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
@@ -24,54 +24,51 @@ struct TaskListView<ViewModel: TaskListViewModelProtocol>: View {
                     EmptyTaskView {
                         navigateToCreateTaskView()
                     }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                    .padding(.bottom,100)
                 } else {
                     ScrollView(showsIndicators:false) {
-                        ForEach($viewModel.tasks, id : \.self) { task in
-                            TaskItemView(taskItem: TaskItem(id: UUID(), title: task.title.wrappedValue, createdAt: task.createdAt.wrappedValue, isCompleted: task.isCompleted.wrappedValue )) {
-                                
+                        ForEach($viewModel.tasks) { task in
+                            TaskItemView(taskItem: task.wrappedValue) {
                                 viewModel.markTaskComplete(task: task.wrappedValue)
                             }
-                                .onTapGesture {
-                                    viewModel.selectedTask = task.wrappedValue
-                                    navigateToCreateTaskView()
-                                }
+                            .onTapGesture {
+                                viewModel.selectedTask = task.wrappedValue
+                                navigateToCreateTaskView()
+                            }
                         }
                     }
-                    ZStack {
-                        NavigationLink(destination: CreateTaskView(viewModel: viewModel)) {
-                            Image(systemName: "plus")
-                                .resizable()
-                                .frame(width: 20,height: 20)
-                                .foregroundColor(.white)
-                        }
+                    NavigationLink(destination: CreateTaskView(viewModel: viewModel)) {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.white)
+                            .frame(width: 60, height: 60)
+                            .background(Color.green.opacity(0.9))
+                            .clipShape(Circle())
+                            .padding()
                     }
                     .onAppear {
                         viewModel.selectedTask = nil
                     }
-                    .frame(width: 60,height: 60)
-                    .background(Color.green.opacity(0.9))
-                    .clipShape(Circle())
-                    .padding()
                 }
-
+                
             }
             .navigationDestination(isPresented: $viewModel.navigateToCreateTaskView, destination: {
                 CreateTaskView(viewModel: viewModel)
             })
-            .background(Color.white)
+            .background(Color(uiColor: .systemBackground))
             .navigationTitle("ToDo")
             .navigationBarTitleDisplayMode(.large)
             
-           
+            
         }
         
     }
     
     // Function to trigger navigation to CreateTaskView
-     private func navigateToCreateTaskView() {
-         viewModel.navigateToCreateTaskView = true
-     }
+    private func navigateToCreateTaskView() {
+        viewModel.navigateToCreateTaskView = true
+    }
 }
 
 

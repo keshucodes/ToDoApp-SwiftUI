@@ -99,10 +99,9 @@ class TaskViewModel : TaskListViewModelProtocol {
     
     func markTaskComplete(task : TaskItem) {
         //handle selected task
-        selectedTask = task
-        let isComplete = selectedTask?.isCompleted ?? false
-        selectedTask?.isCompleted = !isComplete
-        try? updateTask(selectedTask!)
+        var completedTask = task
+        completedTask.isCompleted.toggle()
+        try? updateTask(completedTask)
     }
     
     func delete(_ id: UUID) throws {
